@@ -83,13 +83,10 @@ function createCalendar() {
         days.appendChild(div);
 
         if (currentDate.getFullYear() === date.getFullYear() && currentDate.getMonth() === date.getMonth() && currentDate.getDate() === date.getDate()) {
-            div.style.backgroundColor = 'rgba(0, 162, 255, 0.226)';
+            div.style.backgroundColor = `rgb(${Math.round(Math.random() * 255)}, ${Math.round(Math.random() * 255)}, ${Math.round(Math.random() * 255)})`;
             div.style.color = 'white';
+            div.style.borderRadius = '100%';
         }
-
-        div.addEventListener('click', () => {
-            page(div, formattedDate);
-        })
     }
 }
 
