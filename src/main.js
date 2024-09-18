@@ -51,7 +51,9 @@ function createCalendar() {
 
     const lastDay = new Date(year, month + 1, 0);
 
-    const firstDayIndex = firstDay.getDay();
+    let firstDayIndex = firstDay.getDay();
+
+    firstDayIndex = firstDayIndex === 0 ? 7 : firstDayIndex;
 
     const numberOfDays = lastDay.getDate();
 
@@ -63,7 +65,7 @@ function createCalendar() {
     display.innerHTML = `${formattedDate}`;
 
 
-    for (let i = 1; i <= firstDayIndex; i++) {
+    for (let i = 1; i < firstDayIndex; i++) {
         const div = document.createElement('div');
         div.innerHTML += "";
         div.style.backgroundColor = 'white';
@@ -71,7 +73,6 @@ function createCalendar() {
 
         days.appendChild(div);
     }
-
 
     for (let x = 1; x <= numberOfDays; x++) {
         let div = document.createElement('div');
